@@ -11,6 +11,8 @@ enum Item {
 	CRACKED_NUT,
 }
 
+@export var hebrew: bool = false
+
 var current_item:int = Item.NONE
 
 var first_time_outside_shown: = false
@@ -28,6 +30,7 @@ var hedges_clipped: = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
+	
 
 func restart():
 	cupboard_open = false
