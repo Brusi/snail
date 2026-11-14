@@ -9,7 +9,7 @@ enum Speaker {
 	AKBARAT,
 }
 
-const HEBREW_FONT = preload("res://font/Bibush.ttf")
+const HEBREW_FONT = preload("res://font/BibushChunky.ttf")
 const ENGLISH_FONT = preload("res://font/MatchupPro.ttf")
 
 # Signal to
