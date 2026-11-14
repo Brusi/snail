@@ -16,7 +16,7 @@ func get_allow_going_deeper() -> bool:
 func _process(delta):
 	var textbox: = get_textbox()
 	if near(get_player_position(), $Key.global_position) and $Key.visible:
-		textbox.show_tooltip("Press [Z] to pick up key.", "לחצו [Z] כדי להרים מפתח.")
+		textbox.show_tooltip("Press [Z] to pick up key.", "לחצו [Z] כדי לקחת את המפתח.")
 		if not textbox.text_shown and Input.is_action_just_pressed("interact"):
 			$Key.visible = false
 			Status.current_item = Status.Item.CUPBOARD_KEY
@@ -35,18 +35,18 @@ func _process(delta):
 				textbox.show_text(Speaker.SNAIL, "The hammer broke too...", "גם הפטיש נשבר...")
 				await textbox.done
 		else:
-			textbox.show_tooltip("Press [Z] to examine chest.", "לחצו [Z] כדי לבחון את התיבה.")
+			textbox.show_tooltip("Press [Z] to examine chest.", "לחצו [Z] כדי להסתכל על התיבה.")
 			if Input.is_action_just_pressed("interact") and not textbox.text_shown:
 				textbox.show_text(Speaker.SNAIL, "The lid is stuck.", "המכסה תקוע.")
 				await textbox.done
 				if Status.current_item == Status.Item.CUPBOARD_KEY:
-					textbox.show_text(Speaker.SNAIL, "Even the key won't help.", "אפילו המפתח לא יעזור.")
+					textbox.show_text(Speaker.SNAIL, "Even the key won't help.", "גם המפתח לא יעזור.")
 					await textbox.done
 	elif near(get_player_position(), $Crab.global_position):
 		if Status.current_item == Status.Item.NUT:
 			textbox.show_tooltip("Press [Z] to give nut to crab.", "לחצו [Z] כדי לתת אגוז לסרטן.")
 			if Input.is_action_just_pressed("interact") and not textbox.text_shown:
-				textbox.show_text(Speaker.SNAIL, "Please crack this nut for me?", "תוכל לפצח לי את האגוז הזה?")
+				textbox.show_text(Speaker.SNAIL, "Please crack this nut for me?", "תוכל לפצח את האגוז הזה בשבילי?")
 				await textbox.done
 				textbox.show_text(Speaker.CRACKER, "No problem!", "אין בעיה!")
 				await textbox.done
@@ -56,15 +56,15 @@ func _process(delta):
 		else:
 			textbox.show_tooltip("Press [Z] to talk to crab.", "לחצו [Z] כדי לדבר עם הסרטן.")
 			if Input.is_action_just_pressed("interact") and not textbox.text_shown:
-				textbox.show_text(Speaker.SNAIL, "This is Cracker, my pet crab.", "זה קראקר, סרטן המחמד שלי.")
+				textbox.show_text(Speaker.SNAIL, "This is Cracker, my pet crab.", "זה צבטני, סרטן המחמד שלי.")
 				await textbox.done
-				textbox.show_text(Speaker.SNAIL, "Hello cracker!", "שלום קראקר!")
+				textbox.show_text(Speaker.SNAIL, "Hello cracker!", "שלום צבטני!")
 				await textbox.done
 				textbox.show_text(Speaker.CRACKER, "Hi there!", "היי!")
 				await textbox.done
-				textbox.show_text(Speaker.CRACKER, "You can press [C] to go out.", "אפשר ללחוץ על [C] כדי לצאת.")
+				textbox.show_text(Speaker.CRACKER, "You can press [C] to go out.", "אפשר ללחוץ על [C] כדי לצאת החוצה.")
 				await textbox.done
-				textbox.show_text(Speaker.SNAIL, "I know, thanks Cracker!", "אני יודע, תודה קראקר!")
+				textbox.show_text(Speaker.SNAIL, "I know, thanks Cracker!", "אני יודע, תודה צבטני!")
 				await textbox.done
 	else:
 		textbox.hide_tooltip()

@@ -26,7 +26,7 @@ func update():
 	var textbox:TextBox = get_textbox()
 	if not Status.first_time_outside_shown:
 		Status.first_time_outside_shown = true
-		textbox.show_text(Speaker.SNAIL, 'A beautiful autumn day!', "איזה יום סתיו נהדר!")
+		textbox.show_text(Speaker.SNAIL, 'A beautiful autumn day!', "איזה בוקר סתיו נהדר!")
 		await textbox.done
 	
 	if player_position.y < 0:
@@ -39,7 +39,7 @@ func update():
 			textbox.show_text(Speaker.SNAIL, "That's me!", "זה אני!")
 			await textbox.done
 	elif get_node_or_null("Flower") != null and near(player_position, $Flower.global_position):
-		textbox.show_tooltip("Press [Z] to pick flower", "לחצו [Z] כדי לקטוף פרח")
+		textbox.show_tooltip("Press [Z] to pick flower", "לחצו [Z] כדי לקטוף את הפרח")
 		if Input.is_action_just_pressed("interact") and not textbox.text_shown:
 			$Flower.queue_free()
 			Status.current_item = Status.Item.FLOWER
@@ -50,7 +50,7 @@ func update():
 			await textbox.done
 			textbox.show_text(Speaker.SNAIL, "They must have grown during the summer.", "הם בטח צמחו במהלך הקיץ.")
 			await textbox.done
-			textbox.show_text(Speaker.SNAIL, "I have some hedge clippers back in my shell.", "יש לי מזמרה בבית בתוך הקונכייה.")
+			textbox.show_text(Speaker.SNAIL, "I have some hedge clippers back in my shell.", "יש לי מזמרה בבית, בתוך הקונכייה.")
 			await textbox.done
 		if Status.current_item == Status.Item.CLIPPERS and not textbox.text_shown:
 			textbox.show_tooltip("Press [Z] to clip hedges.", "לחצו [Z] כדי לגזום את השיחים.")

@@ -40,13 +40,13 @@ func update():
 	var textbox: = get_textbox()
 	if near(get_player_position(), $Closet.global_position):
 		if $Hammer.visible:
-			textbox.show_tooltip("Press [Z] to pick up hammer.", "לחצו [Z] כדי להרים פטיש.")
+			textbox.show_tooltip("Press [Z] to pick up hammer.", "לחצו [Z] כדי לקחת את הפטיש.")
 		elif not Status.cupboard_open:
 			textbox.show_tooltip("Press [Z] to open cupboard.", "לחצו [Z] כדי לפתוח את הארון.")
 		
 		if not textbox.text_shown and Input.is_action_just_pressed("interact"):
 			if Status.cupboard_open and $Hammer.visible:
-				textbox.show_text(Speaker.SNAIL, "That's my best hammer.", "זה הפטיש הכי טוב שלי.")
+				textbox.show_text(Speaker.SNAIL, "That's my best hammer.", "זה הפטיש הכי טוב שיש לי.")
 				await textbox.done
 				Status.current_item = Status.Item.HAMMER
 				$Hammer.visible = false
@@ -61,12 +61,12 @@ func update():
 				await textbox.done
 				textbox.show_text(Speaker.SNAIL, "Someone took my hedge clippers!", "מישהו לקח לי את המזמרה!")
 				await textbox.done
-				textbox.show_text(Speaker.SNAIL, "Who would do such a hideous thing?", "מי יעשה דבר נורא כל כך?")
+				textbox.show_text(Speaker.SNAIL, "Who would do such a hideous thing?", "מי יכול לעשות דבר כזה נורא?")
 				await textbox.done
 			elif not Status.cupboard_open:
 				textbox.show_text(Speaker.SNAIL, "It's locked!", "זה נעול!")
 				await textbox.done
-				textbox.show_text(Speaker.SNAIL, "Where did I put my key?", "איפה שמתי את המפתח שלי?")
+				textbox.show_text(Speaker.SNAIL, "Where did I put my key?", "איפה שמתי את המפתח?")
 				await textbox.done
 	elif near(get_player_position(), $Anchor.global_position):
 		get_textbox().show_tooltip("Press [X] to enter terrarium.", "לחצו [X] כדי להיכנס לטרריום.")
