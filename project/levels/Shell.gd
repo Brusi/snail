@@ -61,7 +61,7 @@ func update():
 				await textbox.done
 				textbox.show_text(Speaker.SNAIL, "Someone took my hedge clippers!", "מישהו לקח לי את המזמרה!")
 				await textbox.done
-				textbox.show_text(Speaker.SNAIL, "Who would do such a hideous thing?", "מי יכול לעשות דבר כזה נורא?")
+				textbox.show_text(Speaker.SNAIL, "Who would do such a hideous thing?", "מי יכול היה לעשות דבר כזה נורא?")
 				await textbox.done
 			elif not Status.cupboard_open:
 				textbox.show_text(Speaker.SNAIL, "It's locked!", "זה נעול!")

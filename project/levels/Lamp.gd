@@ -17,6 +17,9 @@ func _process(delta):
 	$GenieWithHat.offset.y = offset
 	$Genie.offset.y = offset
 	
+	if not active:
+		return
+	
 	var textbox: = get_textbox()
 	if near(get_player_position(), $Genie.global_position) and not textbox.text_shown:
 		if not Status.genie_talked_for_the_first_time:

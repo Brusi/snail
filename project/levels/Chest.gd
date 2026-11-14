@@ -15,6 +15,8 @@ func _ready():
 
 
 func _process(delta):
+	if not active:
+		return
 	if near(get_player_position(), $Anchor.global_position):
 		get_textbox().show_tooltip("Press [X] to enter lamp.", "לחצו [X] כדי להיכנס למנורה.")
 	elif get_node_or_null("Coin") != null and near(get_player_position(), $Coin.global_position):

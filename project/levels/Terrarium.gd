@@ -14,6 +14,8 @@ func get_allow_going_deeper() -> bool:
 	return Status.chest_open
 
 func _process(delta):
+	if not active:
+		return
 	var textbox: = get_textbox()
 	if near(get_player_position(), $Key.global_position) and $Key.visible:
 		textbox.show_tooltip("Press [Z] to pick up key.", "לחצו [Z] כדי לקחת את המפתח.")

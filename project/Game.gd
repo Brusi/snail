@@ -54,6 +54,9 @@ func down_one_level(depth:int) -> void:
 	move_child(new_level, 0)
 	
 	scale_anchor = get_level_anchor(current_level)
+	
+	get_textbox().visible = false
+	get_textbox().tooltip_shown = false
 		
 	var tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_method(zoom_in_level, 0.0, 1.0, ZOOM_TIME)
@@ -87,12 +90,16 @@ func up_one_level(depth:int) -> void:
 	
 	scale_anchor = get_level_anchor(new_level)
 	
+	get_textbox().visible = false
+	get_textbox().tooltip_shown = false
+	
 	var tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tween.tween_method(zoom_out_level, 1.0, 0.0, ZOOM_TIME)
 	tween.tween_callback(zoom_done)
 
 func zoom_in_level(t:float) -> void:
 	$Player.visible = false
+	get_textbox().visible = false
 	
 	var scale: = 1.0 / 16.0 + t * 15.0/16.0
 	level_to_scale.scale.x = scale
@@ -110,6 +117,7 @@ func zoom_in_level(t:float) -> void:
 	
 func zoom_out_level(t:float) -> void:
 	$Player.visible = false
+	get_textbox().visible = false
 	$Player.position = CENTER
 	
 	var scale: = 1.0 / 16.0 + t * 15.0/16.0
@@ -151,7 +159,8 @@ func _physics_process(delta):
 func _process(delta):
 	update_item()
 	if level_to_scale != null:
-		get_textbox().hide_tooltip()
+		get_textbox().visible = false
+		get_textbox().tooltip_shown = false
 	
 	if ($UI/TextBox.text_shown):
 		return

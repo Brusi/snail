@@ -26,6 +26,7 @@ var _applied_hebrew = null
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	visible = false
 	texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	_ensure_layout()
 
@@ -113,6 +114,9 @@ func show_tooltip(en_text: String, he_text: String):
 	if text_shown:
 		# Tooltip should not override dialogue.
 		return
+	var game = get_parent().get_parent() as Game
+	if game and game.level_to_scale != null:
+		return
 	_ensure_layout()
 	visible = true
 	tooltip_shown = true
@@ -130,6 +134,11 @@ func hide_tooltip():
 	tooltip_shown = false
 	
 func _process(delta:float):
+	var game = get_parent().get_parent() as Game
+	if game and game.level_to_scale != null:
+		if not text_shown:
+			visible = false
+			tooltip_shown = false
 	if Input.is_action_just_pressed("enter") or Input.is_action_just_pressed("interact") or Input.is_action_just_pressed("exit"):
 		emit_signal("continue_in")
 	
