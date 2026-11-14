@@ -2,7 +2,7 @@ extends Level
 
 func _ready():
 	super()
-	if Status.cupboard_open:
+	if Status.cupboard_open or Status.current_item == Status.Item.CUPBOARD_KEY:
 		$Key.visible = false
 	
 	$ChestOpen.visible = Status.chest_open
