@@ -1,0 +1,74 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/clippers.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/rat.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/nut.png" type="Texture2D" id=4]
+[ext_resource path="res://levels/Hat.gd" type="Script" id=5]
+[ext_resource path="res://assets/hat_bg.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/rat_dead.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/rat_run_2.png" type="Texture2D" id=8]
+[ext_resource path="res://assets/rat_run_1.png" type="Texture2D" id=9]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+} ]
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="hat_bg" type="Sprite2D" parent="." index="0"]
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PackedInt32Array( 262154, -2147483648, 0, 262155, -2147483648, 0, 262156, -2147483648, 0, 262157, -2147483648, 0, 327688, -2147483648, 0, 327689, -2147483648, 0, 327694, -2147483648, 0, 327695, -2147483648, 0, 393223, -2147483648, 0, 393232, -2147483648, 0, 458758, -2147483648, 0, 458769, -2147483648, 0, 524294, -2147483648, 0, 524305, -2147483648, 0, 589830, -2147483648, 0, 589841, -2147483648, 0, 655366, -2147483648, 0, 655377, -2147483648, 0, 720903, -2147483648, 0, 720912, -2147483648, 0, 720913, -2147483648, 0, 786440, -2147483648, 0, 786441, -2147483648, 0, 786446, -2147483648, 0, 786447, -2147483648, 0, 851978, -2147483648, 0, 851979, -2147483648, 0, 851980, -2147483648, 0, 851981, -2147483648, 0 )
+
+[node name="Anchor" parent="." index="2"]
+position = Vector2( -264, -112 )
+
+[node name="Nut" type="Sprite2D" parent="." index="3"]
+position = Vector2( -56, 16 )
+texture = ExtResource( 4 )
+
+[node name="Clippers" type="Sprite2D" parent="." index="4"]
+position = Vector2( 56, 32 )
+texture = ExtResource( 2 )
+
+[node name="Rat" type="Sprite2D" parent="." index="5"]
+position = Vector2( 32, 0 )
+offset = Vector2( 8, -2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Rat" index="0"]
+position = Vector2( 8, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/StaticBody2D" index="0"]
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rat" index="1"]
+frames = SubResource( 1 )
+animation = "run"
+playing = true
+offset = Vector2( 8, -2 )

@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/genie.png" type="Texture2D" id=2]
+[ext_resource path="res://assets/genie_with_hat.png" type="Texture2D" id=3]
+[ext_resource path="res://assets/hat_with_flower.png" type="Texture2D" id=4]
+[ext_resource path="res://levels/Lamp.gd" type="Script" id=5]
+[ext_resource path="res://assets/lamp_bg.png" type="Texture2D" id=6]
+
+[node name="Lamp" instance=ExtResource( 1 )]
+script = ExtResource( 5 )
+
+[node name="lamp_bg" type="Sprite2D" parent="." index="0"]
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PackedInt32Array( 196615, -2147483648, 0, 196616, -2147483648, 0, 196617, -2147483648, 0, 196618, -2147483648, 0, 196619, -2147483648, 0, 196620, -2147483648, 0, 196621, -2147483648, 0, 196622, -2147483648, 0, 196623, -2147483648, 0, 262149, -2147483648, 0, 262150, -2147483648, 0, 262160, -2147483648, 0, 262161, -2147483648, 0, 327685, -2147483648, 0, 327698, -2147483648, 0, 393220, -2147483648, 0, 393235, -2147483648, 0, 458755, -2147483648, 0, 458768, -2147483648, 0, 458772, -2147483648, 0, 524291, -2147483648, 0, 524304, -2147483648, 0, 524308, -2147483648, 0, 589828, -2147483648, 0, 589840, -2147483648, 0, 589843, -2147483648, 0, 655365, -2147483648, 0, 655378, -2147483648, 0, 720902, -2147483648, 0, 720913, -2147483648, 0, 786439, -2147483648, 0, 786440, -2147483648, 0, 786441, -2147483648, 0, 786446, -2147483648, 0, 786447, -2147483648, 0, 786448, -2147483648, 0, 851978, -2147483648, 0, 851979, -2147483648, 0, 851980, -2147483648, 0, 851981, -2147483648, 0 )
+
+[node name="Anchor" parent="." index="2"]
+position = Vector2( 40, -16 )
+
+[node name="Genie" type="Sprite2D" parent="." index="3"]
+position = Vector2( 64, 16 )
+texture = ExtResource( 2 )
+offset = Vector2( 8, 0 )
+
+[node name="GenieWithHat" type="Sprite2D" parent="." index="4"]
+visible = false
+position = Vector2( 64, 16 )
+texture = ExtResource( 3 )
+offset = Vector2( 8, 0 )
+
+[node name="Hat" type="Sprite2D" parent="." index="5"]
+visible = false
+position = Vector2( 40, -24 )
+texture = ExtResource( 4 )

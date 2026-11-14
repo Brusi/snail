@@ -1,0 +1,50 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/key.png" type="Texture2D" id=2]
+[ext_resource path="res://levels/Terrarium.gd" type="Script" id=3]
+[ext_resource path="res://assets/chest.png" type="Texture2D" id=4]
+[ext_resource path="res://assets/chest_open.png" type="Texture2D" id=5]
+[ext_resource path="res://assets/crab.png" type="Texture2D" id=6]
+[ext_resource path="res://assets/terrarium_bg.png" type="Texture2D" id=7]
+[ext_resource path="res://assets/crab2.png" type="Texture2D" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 1.0
+} ]
+
+[node name="Level" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="terrarium_bg" type="Sprite2D" parent="." index="0"]
+texture = ExtResource( 7 )
+
+[node name="TileMap" parent="." index="1"]
+tile_data = PackedInt32Array( 196613, -2147483648, 0, 196614, -2147483648, 0, 196615, -2147483648, 0, 196616, -2147483648, 0, 196617, -2147483648, 0, 196618, -2147483648, 0, 196619, -2147483648, 0, 196620, -2147483648, 0, 196621, -2147483648, 0, 196622, -2147483648, 0, 196623, -2147483648, 0, 196624, -2147483648, 0, 196625, -2147483648, 0, 196626, -2147483648, 0, 262148, -2147483648, 0, 262154, -2147483648, 0, 262155, -2147483648, 0, 262156, -2147483648, 0, 262163, -2147483648, 0, 327684, -2147483648, 0, 327690, -2147483648, 0, 327691, -2147483648, 0, 327692, -2147483648, 0, 327699, -2147483648, 0, 393220, -2147483648, 0, 393225, -2147483648, 0, 393226, -2147483648, 0, 393227, -2147483648, 0, 393228, -2147483648, 0, 393229, -2147483648, 0, 393232, -2147483648, 0, 393235, -2147483648, 0, 458756, -2147483648, 0, 458758, -2147483648, 0, 458759, -2147483648, 0, 458760, -2147483648, 0, 458764, -2147483648, 0, 458771, -2147483648, 0, 524292, -2147483648, 0, 524294, -2147483648, 0, 524295, -2147483648, 0, 524296, -2147483648, 0, 524307, -2147483648, 0, 589828, -2147483648, 0, 589843, -2147483648, 0, 655364, -2147483648, 0, 655379, -2147483648, 0, 720900, -2147483648, 0, 720915, -2147483648, 0, 786436, -2147483648, 0, 786451, -2147483648, 0, 851973, -2147483648, 0, 851974, -2147483648, 0, 851975, -2147483648, 0, 851976, -2147483648, 0, 851977, -2147483648, 0, 851978, -2147483648, 0, 851979, -2147483648, 0, 851980, -2147483648, 0, 851981, -2147483648, 0, 851982, -2147483648, 0, 851983, -2147483648, 0, 851984, -2147483648, 0, 851985, -2147483648, 0, 851986, -2147483648, 0 )
+
+[node name="Anchor" parent="." index="2"]
+position = Vector2( -72, 16 )
+
+[node name="Key" type="Sprite2D" parent="." index="3"]
+position = Vector2( 72, 32 )
+texture = ExtResource( 2 )
+
+[node name="Chest" type="Sprite2D" parent="." index="4"]
+position = Vector2( -72, 24 )
+texture = ExtResource( 4 )
+offset = Vector2( 0, -16 )
+
+[node name="ChestOpen" type="Sprite2D" parent="." index="5"]
+position = Vector2( -72, 24 )
+texture = ExtResource( 5 )
+offset = Vector2( 0, -16 )
+
+[node name="Crab" type="AnimatedSprite2D" parent="." index="6"]
+position = Vector2( 72, -16 )
+frames = SubResource( 1 )
+frame = 1
+playing = true
