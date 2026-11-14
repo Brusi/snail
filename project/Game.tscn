@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://tdevq1tgq87d" path="res://assets/snail_noshell_walk.png" id="1"]
 [ext_resource type="Script" uid="uid://dd354lhe5gxsu" path="res://Player.gd" id="2"]
 [ext_resource type="Script" uid="uid://cecc1xc7kubtt" path="res://TextBox.gd" id="3"]
-[ext_resource type="PackedScene" path="res://levels/Shell.tscn" id="4"]
+[ext_resource type="PackedScene" uid="uid://dye7xrkfvqerp" path="res://levels/Shell.tscn" id="4"]
 [ext_resource type="Script" uid="uid://cdexedhnvuirr" path="res://Game.gd" id="5"]
 [ext_resource type="Theme" uid="uid://btv3cwx30xn7y" path="res://theme.tres" id="6"]
 [ext_resource type="Texture2D" uid="uid://dfpbjow2owqkl" path="res://assets/key.png" id="7"]
@@ -298,7 +298,6 @@ offset_bottom = 224.0
 texture = ExtResource("23")
 
 [node name="Dither" type="Sprite2D" parent="UI" unique_id=1319505171]
-visible = false
 material = SubResource("4")
 position = Vector2(192, 120)
 scale = Vector2(12, 15)
