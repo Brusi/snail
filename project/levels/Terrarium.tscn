@@ -47,4 +47,4 @@ offset = Vector2( 0, -16 )
 position = Vector2( 72, -16 )
 frames = SubResource( 1 )
 frame = 1
-playing = true
+autoplay = "default"

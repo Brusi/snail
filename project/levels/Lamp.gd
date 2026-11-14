@@ -12,7 +12,7 @@ func _process(delta):
 	$Hat.visible = Status.hat_down
 	
 	statetime += delta
-	var offset: = round(sin(statetime))
+	var offset: float = round(sin(statetime))
 	$GenieWithHat.offset.y = offset
 	$Genie.offset.y = offset
 	

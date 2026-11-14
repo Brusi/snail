@@ -55,9 +55,9 @@ func down_one_level(depth:int) -> void:
 	
 	scale_anchor = get_level_anchor(current_level)
 		
-	$Tween.interpolate_method(self, 'zoom_in_level', 0.0, 1.0, ZOOM_TIME, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	$Tween.interpolate_callback(self, ZOOM_TIME, 'zoom_done')
-	$Tween.start()
+	var tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_method(zoom_in_level, 0.0, 1.0, ZOOM_TIME)
+	tween.tween_callback(zoom_done)
 	
 func up_one_level(depth:int) -> void:
 	if level_to_scale != null:
@@ -87,9 +87,9 @@ func up_one_level(depth:int) -> void:
 	
 	scale_anchor = get_level_anchor(new_level)
 	
-	$Tween.interpolate_method(self, 'zoom_out_level', 1.0, 0.0, ZOOM_TIME, Tween.TRANS_SINE, Tween.EASE_IN_OUT)
-	$Tween.interpolate_callback(self, ZOOM_TIME, 'zoom_done')
-	$Tween.start()
+	var tween: Tween = create_tween().set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tween.tween_method(zoom_out_level, 1.0, 0.0, ZOOM_TIME)
+	tween.tween_callback(zoom_done)
 
 func zoom_in_level(t:float) -> void:
 	$Player.visible = false
@@ -128,6 +128,7 @@ func zoom_out_level(t:float) -> void:
 
 func zoom_done():
 	remove_child(current_level)
+	current_level.queue_free()
 	current_level = level_to_scale
 	level_to_scale = null
 	

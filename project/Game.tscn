@@ -1,10 +1,10 @@
-[gd_scene load_steps=31 format=3 uid="uid://u8hjlpk65ycy"]
+[gd_scene format=3 uid="uid://u8hjlpk65ycy"]
 
 [ext_resource type="Texture2D" uid="uid://tdevq1tgq87d" path="res://assets/snail_noshell_walk.png" id="1"]
-[ext_resource type="Script" path="res://Player.gd" id="2"]
-[ext_resource type="Script" path="res://TextBox.gd" id="3"]
+[ext_resource type="Script" uid="uid://dd354lhe5gxsu" path="res://Player.gd" id="2"]
+[ext_resource type="Script" uid="uid://cecc1xc7kubtt" path="res://TextBox.gd" id="3"]
 [ext_resource type="PackedScene" path="res://levels/Shell.tscn" id="4"]
-[ext_resource type="Script" path="res://Game.gd" id="5"]
+[ext_resource type="Script" uid="uid://cdexedhnvuirr" path="res://Game.gd" id="5"]
 [ext_resource type="Theme" uid="uid://btv3cwx30xn7y" path="res://theme.tres" id="6"]
 [ext_resource type="Texture2D" uid="uid://dfpbjow2owqkl" path="res://assets/key.png" id="7"]
 [ext_resource type="Texture2D" uid="uid://3cv7vkgh6lbx" path="res://assets/hammer.png" id="8"]
@@ -33,7 +33,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("15")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -44,7 +44,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("1")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -55,7 +55,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("17")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -66,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("16")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -76,11 +76,12 @@ code = "shader_type canvas_item;
 
 uniform float width = 384.0;
 uniform float height = 240.0;
+uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_nearest;
 
 void fragment() {
 	vec2 uv = SCREEN_UV;
 	
-	vec3 c = textureLod(SCREEN_TEXTURE, uv, 0.0).rgb;
+	vec3 c = textureLod(screen_texture, uv, 0.0).rgb;
 	
 	vec2 tex_uv = UV;
 	
@@ -137,97 +138,90 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="4"]
 shader = SubResource("3")
+shader_parameter/width = 384.0
+shader_parameter/height = 240.0
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" unique_id=438686901]
+texture_filter = 1
 script = ExtResource("5")
 
-[node name="Level" parent="." instance=ExtResource("4")]
+[node name="Level" parent="." unique_id=506638683 instance=ExtResource("4")]
 position = Vector2(192, 120)
 
-[node name="Item" type="Node2D" parent="."]
+[node name="Item" type="Node2D" parent="." unique_id=887371979]
 
-[node name="Key" type="Sprite2D" parent="Item"]
+[node name="Key" type="Sprite2D" parent="Item" unique_id=49677656]
 visible = false
 texture = ExtResource("7")
 offset = Vector2(0, -16)
 
-[node name="Hammer" type="Sprite2D" parent="Item"]
+[node name="Hammer" type="Sprite2D" parent="Item" unique_id=730608528]
 visible = false
 texture = ExtResource("8")
 offset = Vector2(0, -16)
 
-[node name="Coin" type="Sprite2D" parent="Item"]
+[node name="Coin" type="Sprite2D" parent="Item" unique_id=428727561]
 visible = false
 texture = ExtResource("10")
 offset = Vector2(0, -16)
 
-[node name="Flower" type="Sprite2D" parent="Item"]
+[node name="Flower" type="Sprite2D" parent="Item" unique_id=1054013079]
 visible = false
 texture = ExtResource("11")
 offset = Vector2(0, -16)
 
-[node name="Clippers" type="Sprite2D" parent="Item"]
+[node name="Clippers" type="Sprite2D" parent="Item" unique_id=679054525]
 visible = false
 texture = ExtResource("12")
 offset = Vector2(0, -16)
 
-[node name="CrackedNut" type="Sprite2D" parent="Item"]
+[node name="CrackedNut" type="Sprite2D" parent="Item" unique_id=1738879781]
 visible = false
 texture = ExtResource("14")
 offset = Vector2(0, -16)
 
-[node name="Nut" type="Sprite2D" parent="Item"]
+[node name="Nut" type="Sprite2D" parent="Item" unique_id=1594779978]
 visible = false
 texture = ExtResource("13")
 offset = Vector2(0, -16)
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D" parent="." unique_id=241883766]
 position = Vector2(232, 120)
 script = ExtResource("2")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Player" unique_id=1302139398]
 polygon = PackedVector2Array(-7.5, -6, -6, -7.5, 6, -7.5, 7.5, -6, 7.5, 6, 6, 7.5, -6, 7.5, -7.5, 6)
 
-[node name="NoShell" type="AnimatedSprite2D" parent="Player"]
+[node name="NoShell" type="AnimatedSprite2D" parent="Player" unique_id=535223438]
 sprite_frames = SubResource("1")
 animation = &"idle"
 
-[node name="WithShell" type="AnimatedSprite2D" parent="Player"]
+[node name="WithShell" type="AnimatedSprite2D" parent="Player" unique_id=427000122]
 sprite_frames = SubResource("2")
 animation = &"idle"
 
-[node name="Tween" type="Tween" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
-script = null
-
-[node name="gradient" type="Sprite2D" parent="."]
+[node name="gradient" type="Sprite2D" parent="." unique_id=1903268018]
 visible = false
 position = Vector2(192, 120)
 texture = ExtResource("25")
 
-[node name="Dialog" type="Node2D" parent="."]
+[node name="Dialog" type="Node2D" parent="." unique_id=2103443967]
 position = Vector2(-8, 0)
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1636346855]
 
-[node name="TextBox" type="Control" parent="UI"]
+[node name="TextBox" type="Control" parent="UI" unique_id=2097346251]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 16.0
 offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("3")
 
-[node name="TextureRect" type="TextureRect" parent="UI/TextBox"]
+[node name="TextureRect" type="TextureRect" parent="UI/TextBox" unique_id=1374752930]
 layout_mode = 0
 offset_left = 48.0
 offset_top = 192.0
@@ -235,7 +229,7 @@ offset_right = 336.0
 offset_bottom = 224.0
 texture = ExtResource("9")
 
-[node name="Label" type="Label" parent="UI/TextBox"]
+[node name="Label" type="Label" parent="UI/TextBox" unique_id=647499830]
 layout_mode = 0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -246,16 +240,16 @@ offset_right = -56.0
 offset_bottom = -24.0
 theme = ExtResource("6")
 
-[node name="Timer" type="Timer" parent="UI/TextBox"]
+[node name="Timer" type="Timer" parent="UI/TextBox" unique_id=155902299]
 wait_time = 0.02
 autostart = true
 
-[node name="Portraits" type="Control" parent="UI/TextBox"]
+[node name="Portraits" type="Control" parent="UI/TextBox" unique_id=518353142]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Snail" type="TextureRect" parent="UI/TextBox/Portraits"]
+[node name="Snail" type="TextureRect" parent="UI/TextBox/Portraits" unique_id=1586539201]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 192.0
@@ -263,7 +257,7 @@ offset_right = 47.0
 offset_bottom = 224.0
 texture = ExtResource("18")
 
-[node name="SnailShell" type="TextureRect" parent="UI/TextBox/Portraits"]
+[node name="SnailShell" type="TextureRect" parent="UI/TextBox/Portraits" unique_id=344718493]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 192.0
@@ -271,7 +265,7 @@ offset_right = 47.0
 offset_bottom = 224.0
 texture = ExtResource("19")
 
-[node name="Rat" type="TextureRect" parent="UI/TextBox/Portraits"]
+[node name="Rat" type="TextureRect" parent="UI/TextBox/Portraits" unique_id=2121882596]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 192.0
@@ -279,7 +273,7 @@ offset_right = 47.0
 offset_bottom = 224.0
 texture = ExtResource("21")
 
-[node name="Crab" type="TextureRect" parent="UI/TextBox/Portraits"]
+[node name="Crab" type="TextureRect" parent="UI/TextBox/Portraits" unique_id=976398398]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 192.0
@@ -287,7 +281,7 @@ offset_right = 47.0
 offset_bottom = 224.0
 texture = ExtResource("20")
 
-[node name="Genie" type="TextureRect" parent="UI/TextBox/Portraits"]
+[node name="Genie" type="TextureRect" parent="UI/TextBox/Portraits" unique_id=192890779]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 192.0
@@ -295,7 +289,7 @@ offset_right = 47.0
 offset_bottom = 224.0
 texture = ExtResource("22")
 
-[node name="GenieHat" type="TextureRect" parent="UI/TextBox/Portraits"]
+[node name="GenieHat" type="TextureRect" parent="UI/TextBox/Portraits" unique_id=1406418424]
 layout_mode = 0
 offset_left = 15.0
 offset_top = 192.0
@@ -303,13 +297,14 @@ offset_right = 47.0
 offset_bottom = 224.0
 texture = ExtResource("23")
 
-[node name="Dither" type="Sprite2D" parent="UI"]
+[node name="Dither" type="Sprite2D" parent="UI" unique_id=1319505171]
+visible = false
 material = SubResource("4")
 position = Vector2(192, 120)
 scale = Vector2(12, 15)
 texture = ExtResource("24")
 
-[node name="spears" type="Sprite2D" parent="."]
+[node name="spears" type="Sprite2D" parent="." unique_id=209626829]
 visible = false
 position = Vector2(184, 104)
 texture = ExtResource("26")
