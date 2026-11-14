@@ -1,50 +1,56 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene format=3 uid="uid://qru8k8qbmwwv"]
 
-[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/key.png" type="Texture2D" id=2]
-[ext_resource path="res://levels/Terrarium.gd" type="Script" id=3]
-[ext_resource path="res://assets/chest.png" type="Texture2D" id=4]
-[ext_resource path="res://assets/chest_open.png" type="Texture2D" id=5]
-[ext_resource path="res://assets/crab.png" type="Texture2D" id=6]
-[ext_resource path="res://assets/terrarium_bg.png" type="Texture2D" id=7]
-[ext_resource path="res://assets/crab2.png" type="Texture2D" id=8]
+[ext_resource type="PackedScene" uid="uid://bc2s2j8ybt51b" path="res://Level.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://dfpbjow2owqkl" path="res://assets/key.png" id="2"]
+[ext_resource type="Script" uid="uid://33af0wqdx8jf" path="res://levels/Terrarium.gd" id="3"]
+[ext_resource type="Texture2D" uid="uid://crfir3pd0jh4k" path="res://assets/chest.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bbq6lv43axi2p" path="res://assets/chest_open.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://big0k4q1522rj" path="res://assets/crab.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://krvej6ya3wcx" path="res://assets/terrarium_bg.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://blrvdt25hvhll" path="res://assets/crab2.png" id="8"]
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "default",
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": 1,
+"name": &"default",
 "speed": 1.0
-} ]
+}]
 
-[node name="Level" instance=ExtResource( 1 )]
-script = ExtResource( 3 )
+[node name="Level" unique_id=1667646749 instance=ExtResource("1")]
+script = ExtResource("3")
 
-[node name="terrarium_bg" type="Sprite2D" parent="." index="0"]
-texture = ExtResource( 7 )
+[node name="terrarium_bg" type="Sprite2D" parent="." index="0" unique_id=1425310121]
+texture = ExtResource("7")
 
-[node name="TileMap" parent="." index="1"]
-tile_data = PackedInt32Array( 196613, -2147483648, 0, 196614, -2147483648, 0, 196615, -2147483648, 0, 196616, -2147483648, 0, 196617, -2147483648, 0, 196618, -2147483648, 0, 196619, -2147483648, 0, 196620, -2147483648, 0, 196621, -2147483648, 0, 196622, -2147483648, 0, 196623, -2147483648, 0, 196624, -2147483648, 0, 196625, -2147483648, 0, 196626, -2147483648, 0, 262148, -2147483648, 0, 262154, -2147483648, 0, 262155, -2147483648, 0, 262156, -2147483648, 0, 262163, -2147483648, 0, 327684, -2147483648, 0, 327690, -2147483648, 0, 327691, -2147483648, 0, 327692, -2147483648, 0, 327699, -2147483648, 0, 393220, -2147483648, 0, 393225, -2147483648, 0, 393226, -2147483648, 0, 393227, -2147483648, 0, 393228, -2147483648, 0, 393229, -2147483648, 0, 393232, -2147483648, 0, 393235, -2147483648, 0, 458756, -2147483648, 0, 458758, -2147483648, 0, 458759, -2147483648, 0, 458760, -2147483648, 0, 458764, -2147483648, 0, 458771, -2147483648, 0, 524292, -2147483648, 0, 524294, -2147483648, 0, 524295, -2147483648, 0, 524296, -2147483648, 0, 524307, -2147483648, 0, 589828, -2147483648, 0, 589843, -2147483648, 0, 655364, -2147483648, 0, 655379, -2147483648, 0, 720900, -2147483648, 0, 720915, -2147483648, 0, 786436, -2147483648, 0, 786451, -2147483648, 0, 851973, -2147483648, 0, 851974, -2147483648, 0, 851975, -2147483648, 0, 851976, -2147483648, 0, 851977, -2147483648, 0, 851978, -2147483648, 0, 851979, -2147483648, 0, 851980, -2147483648, 0, 851981, -2147483648, 0, 851982, -2147483648, 0, 851983, -2147483648, 0, 851984, -2147483648, 0, 851985, -2147483648, 0, 851986, -2147483648, 0 )
+[node name="TileMap" parent="." index="1" unique_id=1809719209]
+layer_0/tile_data = PackedInt32Array(196613, 4, 65536, 196614, 4, 65536, 196615, 4, 65536, 196616, 4, 65536, 196617, 4, 65536, 196618, 4, 65536, 196619, 4, 65536, 196620, 4, 65536, 196621, 4, 65536, 196622, 4, 65536, 196623, 4, 65536, 196624, 4, 65536, 196625, 4, 65536, 196626, 4, 65536, 262148, 4, 65536, 262154, 4, 65536, 262155, 4, 65536, 262156, 4, 65536, 262163, 4, 65536, 327684, 4, 65536, 327690, 4, 65536, 327691, 4, 65536, 327692, 4, 65536, 327699, 4, 65536, 393220, 4, 65536, 393225, 4, 65536, 393226, 4, 65536, 393227, 4, 65536, 393228, 4, 65536, 393229, 4, 65536, 393232, 4, 65536, 393235, 4, 65536, 458756, 4, 65536, 458758, 4, 65536, 458759, 4, 65536, 458760, 4, 65536, 458764, 4, 65536, 458771, 4, 65536, 524292, 4, 65536, 524294, 4, 65536, 524295, 4, 65536, 524296, 4, 65536, 524307, 4, 65536, 589828, 4, 65536, 589843, 4, 65536, 655364, 4, 65536, 655379, 4, 65536, 720900, 4, 65536, 720915, 4, 65536, 786436, 4, 65536, 786451, 4, 65536, 851973, 4, 65536, 851974, 4, 65536, 851975, 4, 65536, 851976, 4, 65536, 851977, 4, 65536, 851978, 4, 65536, 851979, 4, 65536, 851980, 4, 65536, 851981, 4, 65536, 851982, 4, 65536, 851983, 4, 65536, 851984, 4, 65536, 851985, 4, 65536, 851986, 4, 65536)
 
-[node name="Anchor" parent="." index="2"]
-position = Vector2( -72, 16 )
+[node name="Anchor" parent="." index="2" unique_id=1614814120]
+position = Vector2(-72, 16)
 
-[node name="Key" type="Sprite2D" parent="." index="3"]
-position = Vector2( 72, 32 )
-texture = ExtResource( 2 )
+[node name="Key" type="Sprite2D" parent="." index="3" unique_id=85268012]
+position = Vector2(72, 32)
+texture = ExtResource("2")
 
-[node name="Chest" type="Sprite2D" parent="." index="4"]
-position = Vector2( -72, 24 )
-texture = ExtResource( 4 )
-offset = Vector2( 0, -16 )
+[node name="Chest" type="Sprite2D" parent="." index="4" unique_id=898365178]
+position = Vector2(-72, 24)
+texture = ExtResource("4")
+offset = Vector2(0, -16)
 
-[node name="ChestOpen" type="Sprite2D" parent="." index="5"]
-position = Vector2( -72, 24 )
-texture = ExtResource( 5 )
-offset = Vector2( 0, -16 )
+[node name="ChestOpen" type="Sprite2D" parent="." index="5" unique_id=1125803365]
+position = Vector2(-72, 24)
+texture = ExtResource("5")
+offset = Vector2(0, -16)
 
-[node name="Crab" type="AnimatedSprite2D" parent="." index="6"]
-position = Vector2( 72, -16 )
-frames = SubResource( 1 )
-frame = 1
+[node name="Crab" type="AnimatedSprite2D" parent="." index="6" unique_id=1285738182]
+position = Vector2(72, -16)
+sprite_frames = SubResource("1")
 autoplay = "default"
+frame = 1

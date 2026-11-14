@@ -1,41 +1,41 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene format=3 uid="uid://dye7xrkfvqerp"]
 
-[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://levels/Shell.gd" type="Script" id=2]
-[ext_resource path="res://assets/closet.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/open_closet.png" type="Texture2D" id=4]
-[ext_resource path="res://assets/hammer.png" type="Texture2D" id=5]
-[ext_resource path="res://assets/home_bg.png" type="Texture2D" id=6]
-[ext_resource path="res://assets/terrarium.png" type="Texture2D" id=7]
+[ext_resource type="PackedScene" uid="uid://bc2s2j8ybt51b" path="res://Level.tscn" id="1"]
+[ext_resource type="Script" uid="uid://cdyh5swhgipj8" path="res://levels/Shell.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://dpq4b1g404qdn" path="res://assets/closet.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://n0as4xywl78g" path="res://assets/open_closet.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://3cv7vkgh6lbx" path="res://assets/hammer.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://bkyfus40kei5o" path="res://assets/home_bg.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://wmx0c0p1khil" path="res://assets/terrarium.png" id="7"]
 
-[node name="Shell" instance=ExtResource( 1 )]
-script = ExtResource( 2 )
+[node name="Shell" unique_id=910812193 instance=ExtResource("1")]
+script = ExtResource("2")
 
-[node name="home_bg" type="Sprite2D" parent="." index="0"]
-position = Vector2( -24, -40 )
-texture = ExtResource( 6 )
-offset = Vector2( 24, 40 )
+[node name="home_bg" type="Sprite2D" parent="." index="0" unique_id=1923779516]
+position = Vector2(-24, -40)
+texture = ExtResource("6")
+offset = Vector2(24, 40)
 
-[node name="TileMap" parent="." index="1"]
-tile_data = PackedInt32Array( 0, -2147483648, 0, 23, 0, 0, 131087, -2147483648, 0, 131088, -2147483648, 0, 196616, -2147483648, 0, 196617, -2147483648, 0, 196618, -2147483648, 0, 196619, -2147483648, 0, 196620, -2147483648, 0, 196621, -2147483648, 0, 196622, -2147483648, 0, 196623, -2147483648, 0, 196624, -2147483648, 0, 262150, -2147483648, 0, 262151, -2147483648, 0, 262152, -2147483648, 0, 262153, -2147483648, 0, 262154, -2147483648, 0, 262156, -2147483648, 0, 262157, -2147483648, 0, 262160, -2147483648, 0, 262161, -2147483648, 0, 262162, -2147483648, 0, 327685, -2147483648, 0, 327688, -2147483648, 0, 327689, -2147483648, 0, 327690, -2147483648, 0, 327692, -2147483648, 0, 327693, -2147483648, 0, 327699, -2147483648, 0, 393221, -2147483648, 0, 393231, -2147483648, 0, 393232, -2147483648, 0, 393235, -2147483648, 0, 458757, -2147483648, 0, 458767, -2147483648, 0, 458768, -2147483648, 0, 458771, -2147483648, 0, 524293, -2147483648, 0, 524303, -2147483648, 0, 524304, -2147483648, 0, 524307, -2147483648, 0, 589829, -2147483648, 0, 589839, -2147483648, 0, 589840, -2147483648, 0, 589843, -2147483648, 0, 655365, -2147483648, 0, 655378, -2147483648, 0, 720902, -2147483648, 0, 720914, -2147483648, 0, 786439, -2147483648, 0, 786449, -2147483648, 0, 851976, -2147483648, 0, 851977, -2147483648, 0, 851983, -2147483648, 0, 851984, 0, 0, 917504, -2147483648, 0, 917514, 0, 0, 917515, 0, 0, 917516, 0, 0, 917517, 0, 0, 917518, 0, 0, 917527, 0, 0 )
+[node name="TileMap" parent="." index="1" unique_id=1809719209]
+layer_0/tile_data = PackedInt32Array(0, 4, 65536, 23, 4, 0, 917504, 4, 65536, 917514, 4, 0, 917515, 4, 0, 917516, 4, 0, 917517, 4, 0, 917518, 4, 0, 917527, 4, 0, 196616, 4, 65536, 196617, 4, 65536, 196618, 4, 65536, 196619, 4, 65536, 196620, 4, 65536, 196621, 4, 65536, 196622, 4, 65536, 196623, 4, 65536, 196624, 4, 65536, 262151, 4, 65536, 262152, 4, 65536, 262153, 4, 65536, 262154, 4, 65536, 262156, 4, 65536, 262157, 4, 65536, 262160, 4, 65536, 262161, 4, 65536, 327688, 4, 65536, 327689, 4, 65536, 327690, 4, 65536, 327692, 4, 65536, 327693, 4, 65536, 458757, 4, 65536, 458771, 4, 65536, 524293, 4, 65536, 524307, 4, 65536, 589829, 4, 65536, 589843, 4, 65536, 655365, 4, 65536, 655378, 4, 65536, 720902, 4, 65536, 720914, 4, 65536, 786439, 4, 65536, 786449, 4, 65536, 851976, 4, 65536, 851977, 4, 65536, 851983, 4, 65536, 851984, 4, 0, 589840, 4, 0, 589839, 4, 0, 524303, 4, 0, 458767, 4, 0, 393231, 4, 0, 393232, 4, 0, 458768, 4, 0, 524304, 4, 0, 327698, 4, 0, 393234, 4, 0, 393222, 4, 0, 327686, 4, 0)
 
-[node name="terrarium" type="Sprite2D" parent="." index="2"]
-position = Vector2( -40, -40 )
-texture = ExtResource( 7 )
+[node name="terrarium" type="Sprite2D" parent="." index="2" unique_id=1477843382]
+position = Vector2(-40, -40)
+texture = ExtResource("7")
 
-[node name="Anchor" parent="." index="3"]
-position = Vector2( -40, -24 )
+[node name="Anchor" parent="." index="3" unique_id=1614814120]
+position = Vector2(-40, -24)
 
-[node name="Closet" type="Sprite2D" parent="." index="4"]
+[node name="Closet" type="Sprite2D" parent="." index="4" unique_id=1153300462]
 visible = false
-position = Vector2( 19, -24 )
-texture = ExtResource( 3 )
-offset = Vector2( 0, -20 )
+position = Vector2(19, -24)
+texture = ExtResource("3")
+offset = Vector2(0, -20)
 
-[node name="OpenCloset" type="Sprite2D" parent="." index="5"]
-position = Vector2( 19, -44 )
-texture = ExtResource( 4 )
+[node name="OpenCloset" type="Sprite2D" parent="." index="5" unique_id=117152722]
+position = Vector2(19, -44)
+texture = ExtResource("4")
 
-[node name="Hammer" type="Sprite2D" parent="." index="6"]
-position = Vector2( 14, -32 )
-texture = ExtResource( 5 )
+[node name="Hammer" type="Sprite2D" parent="." index="6" unique_id=1222467778]
+position = Vector2(14, -32)
+texture = ExtResource("5")

@@ -3,6 +3,7 @@ extends Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super()
 	if Status.hat_down:
 		$Flower.queue_free()
 	if Status.hedges_clipped:

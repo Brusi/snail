@@ -2,6 +2,7 @@ extends Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super()
 	if Status.current_item == Status.Item.NUT or Status.current_item == Status.Item.CRACKED_NUT or Status.rat_dead:
 		$Nut.queue_free()
 	if Status.current_item == Status.Item.CLIPPERS or Status.hedges_clipped:

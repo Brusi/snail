@@ -8,6 +8,7 @@ extends Level
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super()
 	if Status.current_item == Status.Item.COIN:
 		$Coin.queue_free()
 	pass # Replace with function body.

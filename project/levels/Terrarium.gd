@@ -1,6 +1,7 @@
 extends Level
 
 func _ready():
+	super()
 	if Status.cupboard_open:
 		$Key.visible = false
 	

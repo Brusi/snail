@@ -7,6 +7,7 @@ var first_time_scene: = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	super()
 	first_time_scene = not Status.first_time_text_shown
 	$Closet.visible = not Status.cupboard_open
 	$OpenCloset.visible = not $Closet.visible
