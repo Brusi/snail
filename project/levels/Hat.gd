@@ -94,9 +94,9 @@ func _process(delta):
 			else:
 				textbox.show_tooltip("Press [Z] to talk to Akbarat.")
 				if Input.is_action_just_pressed("interact"):
-					textbox.show_text("Akbarat: I’m Akbarat, The Rat in the Hat")
+					textbox.show_text("Akbarat: I'm Akbarat, The Rat in the Hat")
 					await textbox.done
-					textbox.show_text("Akbarat: The clippers are mine, that’s that!")
+					textbox.show_text("Akbarat: The clippers are mine, that's that!")
 					await textbox.done
 					textbox.show_text("Akbarat: I love them, so shiny and bright!")
 					await textbox.done
