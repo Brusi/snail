@@ -28,77 +28,77 @@ func _process(delta):
 		
 	if not Status.first_time_see_clippers_shown:
 		Status.first_time_see_clippers_shown = true
-		textbox.show_text("My clippers!")
+		textbox.show_text(Speaker.SNAIL, "My clippers!", "המזמרה שלי!")
 		await textbox.done
 	
 	
 	if get_node_or_null("Nut") != null and near(get_player_position(), $Nut.global_position):
-		textbox.show_tooltip("Press [Z] to pick up nut.")
+		textbox.show_tooltip("Press [Z] to pick up nut.", "לחצו [Z] כדי להרים אגוז.")
 		if Input.is_action_just_pressed("interact"):
 			Status.current_item = Status.Item.NUT
 			$Nut.queue_free()
 			
 		pass
 	elif get_node_or_null("Clippers") != null and near(get_player_position(), $Clippers.global_position):
-		textbox.show_tooltip("Press [Z] to pick up clippers.")
+		textbox.show_tooltip("Press [Z] to pick up clippers.", "לחצו [Z] כדי להרים את המזמרה.")
 		if Input.is_action_just_pressed("interact"):
 			$Clippers.queue_free()
 			Status.current_item = Status.Item.CLIPPERS
-			textbox.show_text("My clippers, finally!")
+			textbox.show_text(Speaker.SNAIL, "My clippers, finally!", "המזמרה שלי, סוף סוף!")
 			await textbox.done
 			
 	elif near(get_player_position(), $Rat.global_position) and not textbox.text_shown:
 		if Status.rat_dead:
-			textbox.show_tooltip("Press [Z] to talk to Akbarat.")
+			textbox.show_tooltip("Press [Z] to talk to Akbarat.", "לחצו [Z] כדי לדבר עם עכבראט.")
 			if Input.is_action_just_pressed("interact"):
-				textbox.show_text("He is passed out.")
+				textbox.show_text(Speaker.SNAIL, "He is passed out.", "הוא מעולף.")
 				await textbox.done
 				
 		else:  # Rat is alive
 			if Status.current_item == Status.Item.COIN:
-				textbox.show_tooltip("Press [Z] to give gem to Akbarat.")
+				textbox.show_tooltip("Press [Z] to give gem to Akbarat.", "לחצו [Z] כדי לתת אבן חן לעכבראט.")
 				if Input.is_action_just_pressed("interact"):
 					Status.current_item = Status.Item.NONE
-					textbox.show_text("Akbarat: Good gem, shines a lot")
+					textbox.show_text(Speaker.AKBARAT, "Good gem, shines a lot", "אבן יפה, נוצצת מאוד")
 					await textbox.done
-					textbox.show_text("Akbarat: I'll keep it, why not")
+					textbox.show_text(Speaker.AKBARAT, "I'll keep it, why not", "אשמור לי אותה, למה לא? כבוד!")
 					await textbox.done
 			elif Status.current_item == Status.Item.NUT:
-				textbox.show_tooltip("Press [Z] to give nut to Akbarat.")
+				textbox.show_tooltip("Press [Z] to give nut to Akbarat.", "לחצו [Z] כדי לתת אגוז לעכבראט.")
 				if Input.is_action_just_pressed("interact"):
-					textbox.show_text("Akbarat: I cannot crack this nut")
+					textbox.show_text(Speaker.AKBARAT, "I cannot crack this nut", "איני יכול לפצח אגוזים")
 					await textbox.done
-					textbox.show_text("Akbarat: My teeth are all rot")
+					textbox.show_text(Speaker.AKBARAT, "My teeth are all rot", "השיניים שלי על הפנים!")
 					await textbox.done
 			elif Status.current_item == Status.Item.CRACKED_NUT:
-				textbox.show_tooltip("Press [Z] to give cracked nut to Akbarat.")
+				textbox.show_tooltip("Press [Z] to give cracked nut to Akbarat.", "לחצו [Z] כדי לתת אגוז מפוצח לעכבראט.")
 				if Input.is_action_just_pressed("interact"):
 					Status.current_item = Status.Item.NONE
-					textbox.show_text("Akbarat: Thank you a lot")
+					textbox.show_text(Speaker.AKBARAT, "Thank you a lot", "תודה רבה, איזה כבוד")
 					await textbox.done
-					textbox.show_text("Akbarat: This nut is all cracked")
+					textbox.show_text(Speaker.AKBARAT, "This nut is all cracked", "האגוז מפוצח, מתאים לי מאוד")
 					await textbox.done
-					textbox.show_text("Akbarat: Nom nom nom, that's a good nut")
+					textbox.show_text(Speaker.AKBARAT, "Nom nom nom, that's a good nut", "נום נום נום, אגוז משובח")
 					await textbox.done
-					textbox.show_text("Akbarat: Blat, I forgot,")
+					textbox.show_text(Speaker.AKBARAT, "Blat, I forgot,", "אוי בלאט, ממני נשכח,")
 					await textbox.done
-					textbox.show_text("Akbarat: I'm allergic to nuts!")
+					textbox.show_text(Speaker.AKBARAT, "I'm allergic to nuts!", "אני אלרגי לאגוזים בכלל!")
 					await textbox.done
-					textbox.show_text("Akbarat: That's the end of Akbarat")
+					textbox.show_text(Speaker.AKBARAT, "That's the end of Akbarat", "זה הסוף של עכבראט האומלל")
 					await textbox.done
-					textbox.show_text("Akbarat: The Rat in the Haaaa...")
+					textbox.show_text(Speaker.AKBARAT, "The Rat in the Haaaa...", "העכבר שבכובעעעע...")
 					await textbox.done
 					Status.rat_dead = true
-					textbox.show_text("He passed out")
+					textbox.show_text(Speaker.SNAIL, "He passed out", "הוא התעלף")
 					await textbox.done
 			else:
-				textbox.show_tooltip("Press [Z] to talk to Akbarat.")
+				textbox.show_tooltip("Press [Z] to talk to Akbarat.", "לחצו [Z] כדי לדבר עם עכבראט.")
 				if Input.is_action_just_pressed("interact"):
-					textbox.show_text("Akbarat: I'm Akbarat, The Rat in the Hat")
+					textbox.show_text(Speaker.AKBARAT, "I'm Akbarat, The Rat in the Hat", "אני עכבראט, העכבר שבכובע")
 					await textbox.done
-					textbox.show_text("Akbarat: The clippers are mine, that's that!")
+					textbox.show_text(Speaker.AKBARAT, "The clippers are mine, that's that!", "המזמרה היא שלי, שתדע באופן קבוע!")
 					await textbox.done
-					textbox.show_text("Akbarat: I love them, so shiny and bright!")
+					textbox.show_text(Speaker.AKBARAT, "I love them, so shiny and bright!", "מבריקה ויפה - ממש תענוג רגוע!")
 					await textbox.done
 			
 	else:

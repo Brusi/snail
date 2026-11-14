@@ -16,9 +16,9 @@ func _ready():
 
 func _process(delta):
 	if near(get_player_position(), $Anchor.global_position):
-		get_textbox().show_tooltip("Press [X] to enter lamp.")
+		get_textbox().show_tooltip("Press [X] to enter lamp.", "לחצו [X] כדי להיכנס למנורה.")
 	elif get_node_or_null("Coin") != null and near(get_player_position(), $Coin.global_position):
-		get_textbox().show_tooltip("Press [Z] to pick up gem.")
+		get_textbox().show_tooltip("Press [Z] to pick up gem.", "לחצו [Z] כדי להרים אבן חן.")
 		if (Input.is_action_just_pressed("interact")):
 			$Coin.queue_free()
 			Status.current_item = Status.Item.COIN

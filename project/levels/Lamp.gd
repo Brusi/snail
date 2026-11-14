@@ -20,55 +20,55 @@ func _process(delta):
 	var textbox: = get_textbox()
 	if near(get_player_position(), $Genie.global_position) and not textbox.text_shown:
 		if not Status.genie_talked_for_the_first_time:
-			textbox.show_tooltip("Press [Z] to talk to Genie.")
+			textbox.show_tooltip("Press [Z] to talk to Genie.", "לחצו [Z] כדי לדבר עם הג'יני.")
 			if Input.is_action_just_pressed("interact"):
 				Status.genie_talked_for_the_first_time = true
-				textbox.show_text("Genie: I have been stuck in this lamp")
+				textbox.show_text(Speaker.GENIE, "I have been stuck in this lamp", "אני תקוע בתוך המנורה הזאת")
 				await textbox.done
-				textbox.show_text("Genie: For 10,000 years!")
+				textbox.show_text(Speaker.GENIE, "For 10,000 years!", "כבר 10,000 שנה!")
 				await textbox.done
-				textbox.show_text("Genie: Or so...")
+				textbox.show_text(Speaker.GENIE, "Or so...", "בערך...")
 				await textbox.done
-				textbox.show_text("Genie: Lost track of time, really")
+				textbox.show_text(Speaker.GENIE, "Lost track of time, really", "כבר איבדתי תחושת זמן, האמת")
 				await textbox.done
-				textbox.show_text("Genie: I miss the world outside...")
+				textbox.show_text(Speaker.GENIE, "I miss the world outside...", "אני מתגעגע לעולם שבחוץ...")
 				await textbox.done
 		elif Status.current_item == Status.Item.COIN:
-			textbox.show_tooltip("Press [Z] to give gem to Genie.")
+			textbox.show_tooltip("Press [Z] to give gem to Genie.", "לחצו [Z] כדי לתת אבן חן לג'יני.")
 			if Input.is_action_just_pressed("interact"):
 				Status.current_item = Status.Item.NONE
-				textbox.show_text("Genie: Gems have little value for me")
+				textbox.show_text(Speaker.GENIE, "Gems have little value for me", "לאבני חן אין הרבה ערך בעיניי")
 				await textbox.done
-				textbox.show_text("Genie: I'll put it with the rest of my treasure")
+				textbox.show_text(Speaker.GENIE, "I'll put it with the rest of my treasure", "אשים אותה עם שאר האוצר שלי")
 				await textbox.done
-				textbox.show_text("Genie: I wish I had something truly unique")
+				textbox.show_text(Speaker.GENIE, "I wish I had something truly unique", "הלוואי שהיה לי משהו מיוחד באמת")
 				await textbox.done
 		elif Status.hat_down:
-			textbox.show_tooltip("Press [Z] to talk to Genie.")
+			textbox.show_tooltip("Press [Z] to talk to Genie.", "לחצו [Z] כדי לדבר עם הג'יני.")
 			if Input.is_action_just_pressed("interact"):
-				textbox.show_text("Genie: Thank you for this beautiful flower!")
+				textbox.show_text(Speaker.GENIE, "Thank you for this beautiful flower!", "תודה על הפרח היפהפה הזה!")
 				await textbox.done
 		elif Status.current_item == Status.Item.FLOWER:
-			textbox.show_tooltip("Press [Z] to give flower to Genie.")
+			textbox.show_tooltip("Press [Z] to give flower to Genie.", "לחצו [Z] כדי לתת פרח לג'יני.")
 			if Input.is_action_just_pressed("interact"):
-				textbox.show_text("Genie: Is that... for me?")
+				textbox.show_text(Speaker.GENIE, "Is that... for me?", "זה... בשבילי?")
 				await textbox.done
-				textbox.show_text("Genie: It's beautiful!")
+				textbox.show_text(Speaker.GENIE, "It's beautiful!", "הוא יפהפה!")
 				await textbox.done
-				textbox.show_text("Genie: I'll put it in my hat.")
+				textbox.show_text(Speaker.GENIE, "I'll put it in my hat.", "אשים אותו בכובע שלי.")
 				Status.current_item = Status.Item.NONE
 			
 				Status.hat_down = true
 		else:
-			textbox.show_tooltip("Press [Z] to talk to Genie.")
+			textbox.show_tooltip("Press [Z] to talk to Genie.", "לחצו [Z] כדי לדבר עם הג'יני.")
 			if Input.is_action_just_pressed("interact"):
-				textbox.show_text("Genie: I miss the outside")
+				textbox.show_text(Speaker.GENIE, "I miss the outside", "אני מתגעגע החוצה")
 				await textbox.done
-				textbox.show_text("Genie: I can barely remember how it was")
+				textbox.show_text(Speaker.GENIE, "I can barely remember how it was", "אני בקושי זוכר איך היה שם")
 				await textbox.done
 	elif near(get_player_position(), $Anchor.global_position):
 		if Status.hat_down:
-			textbox.show_tooltip("Press [X] to enter hat.")
+			textbox.show_tooltip("Press [X] to enter hat.", "לחצו [X] כדי להיכנס לכובע.")
 	else:
 		textbox.hide_tooltip()
 	

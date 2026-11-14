@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Level
 
+const Speaker = TextBox.Speaker
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

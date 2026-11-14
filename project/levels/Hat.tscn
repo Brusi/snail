@@ -1,74 +1,80 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene format=3 uid="uid://b174sv3ensfpc"]
 
-[ext_resource path="res://Level.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/clippers.png" type="Texture2D" id=2]
-[ext_resource path="res://assets/rat.png" type="Texture2D" id=3]
-[ext_resource path="res://assets/nut.png" type="Texture2D" id=4]
-[ext_resource path="res://levels/Hat.gd" type="Script" id=5]
-[ext_resource path="res://assets/hat_bg.png" type="Texture2D" id=6]
-[ext_resource path="res://assets/rat_dead.png" type="Texture2D" id=7]
-[ext_resource path="res://assets/rat_run_2.png" type="Texture2D" id=8]
-[ext_resource path="res://assets/rat_run_1.png" type="Texture2D" id=9]
+[ext_resource type="PackedScene" uid="uid://bc2s2j8ybt51b" path="res://Level.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bwup08n7l0qqn" path="res://assets/clippers.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://1duebrpj36f6" path="res://assets/rat.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://d1qfaej61t1ls" path="res://assets/nut.png" id="4"]
+[ext_resource type="Script" uid="uid://chg66ekvpr8op" path="res://levels/Hat.gd" id="5"]
+[ext_resource type="Texture2D" uid="uid://c5bip7dyjeran" path="res://assets/hat_bg.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://bs4im0xs6t4ga" path="res://assets/rat_dead.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://dfkqbybs326vy" path="res://assets/rat_run_2.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://dm88a6b0dymsx" path="res://assets/rat_run_1.png" id="9"]
 
-[sub_resource type="RectangleShape2D" id=2]
-size = Vector2( 16, 16 )
+[sub_resource type="RectangleShape2D" id="2"]
+size = Vector2(16, 16)
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "idle",
+[sub_resource type="SpriteFrames" id="1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7")
+}],
+"loop": 1,
+"name": &"dead",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "run",
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8")
+}],
+"loop": 1,
+"name": &"run",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "dead",
-"speed": 5.0
-} ]
+}]
 
-[node name="Level" instance=ExtResource( 1 )]
-script = ExtResource( 5 )
+[node name="Level" unique_id=1104436361 instance=ExtResource("1")]
+script = ExtResource("5")
 
-[node name="hat_bg" type="Sprite2D" parent="." index="0"]
-texture = ExtResource( 6 )
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="hat_bg" type="Sprite2D" parent="." index="0" unique_id=981023466]
+texture = ExtResource("6")
 
-[node name="TileMap" parent="." index="1"]
+[node name="TileMap" parent="." index="1" unique_id=1809719209]
 layer_0/tile_data = PackedInt32Array(262154, 4, 65536, 262155, 4, 65536, 262156, 4, 65536, 262157, 4, 65536, 327688, 4, 65536, 327689, 4, 65536, 327694, 4, 65536, 327695, 4, 65536, 393223, 4, 65536, 393232, 4, 65536, 458758, 4, 65536, 458769, 4, 65536, 524294, 4, 65536, 524305, 4, 65536, 589830, 4, 65536, 589841, 4, 65536, 655366, 4, 65536, 655377, 4, 65536, 720903, 4, 65536, 720912, 4, 65536, 720913, 4, 65536, 786440, 4, 65536, 786441, 4, 65536, 786446, 4, 65536, 786447, 4, 65536, 851978, 4, 65536, 851979, 4, 65536, 851980, 4, 65536, 851981, 4, 65536)
 
-[node name="Anchor" parent="." index="2"]
-position = Vector2( -264, -112 )
+[node name="Anchor" parent="." index="2" unique_id=1614814120]
+position = Vector2(-264, -112)
 
-[node name="Nut" type="Sprite2D" parent="." index="3"]
-position = Vector2( -56, 16 )
-texture = ExtResource( 4 )
+[node name="Nut" type="Sprite2D" parent="." index="3" unique_id=1028634540]
+position = Vector2(-56, 16)
+texture = ExtResource("4")
 
-[node name="Clippers" type="Sprite2D" parent="." index="4"]
-position = Vector2( 56, 32 )
-texture = ExtResource( 2 )
+[node name="Clippers" type="Sprite2D" parent="." index="4" unique_id=721252417]
+position = Vector2(56, 32)
+texture = ExtResource("2")
 
-[node name="Rat" type="Sprite2D" parent="." index="5"]
-position = Vector2( 32, 0 )
-offset = Vector2( 8, -2 )
-__meta__ = {
-"_edit_group_": true
-}
+[node name="Rat" type="Sprite2D" parent="." index="5" unique_id=1821366417]
+position = Vector2(32, 0)
+offset = Vector2(8, -2)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Rat" index="0"]
-position = Vector2( 8, 0 )
+[node name="StaticBody2D" type="StaticBody2D" parent="Rat" index="0" unique_id=682703471]
+position = Vector2(8, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/StaticBody2D" index="0"]
-shape = SubResource( 2 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Rat/StaticBody2D" index="0" unique_id=1636027993]
+shape = SubResource("2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rat" index="1"]
-frames = SubResource( 1 )
-animation = "run"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rat" index="1" unique_id=2028298926]
+sprite_frames = SubResource("1")
+animation = &"run"
 autoplay = "run"
-offset = Vector2( 8, -2 )
+offset = Vector2(8, -2)
