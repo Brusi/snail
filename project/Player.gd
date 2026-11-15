@@ -32,7 +32,6 @@ func _physics_process(delta):
 		vel *= 0.7
 		set_velocity(vel)
 		move_and_slide()
-		position = Vector2(round(position.x), round(position.y))
 		
 	$WithShell.flip_h = vel.x > 0
 	$NoShell.flip_h = vel.x > 0
@@ -47,6 +46,7 @@ func _physics_process(delta):
 func set_shell(show_shell:bool):
 	$WithShell.visible = show_shell
 	$NoShell.visible = not show_shell
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(_delta):
+	var snapped_pos = global_position.round()
+	$WithShell.global_position = snapped_pos
+	$NoShell.global_position = snapped_pos
