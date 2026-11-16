@@ -28,7 +28,7 @@ func init_level() -> void:
 		await textbox.done
 		textbox.show_text(Speaker.SNAIL, "Perfect for me", "מושלם בשבילי")
 		await textbox.done
-		textbox.show_text(Speaker.SNAIL, "It's time for a little autumn hike", "זה הזמן לטיול סתיו קטן")
+		textbox.show_text(Speaker.SNAIL, "It's time for a little autumn hike", "זה הזמן לטיול קטן של סתיו")
 		await textbox.done
 	
 func _process(delta):
